@@ -1,22 +1,31 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
 
-import './custom.css'
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import Header from "./components/Header/Header";
+import {Route, BrowserRouter} from 'react-router-dom';
+import MainPage from "./components/MainPage/MainPage";
+import Gallery from "./components/Gallery/Gallery";
+import Articles from "./components/Articles/Articles";
+import Footer from "./components/Footer/Footer";
+import FullArticle from "./components/Articles/FullArticle/FullArticle";
 
-export default class App extends Component {
-  static displayName = App.name;
-
-  render () {
+const App = () => {
     return (
-      <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data' component={FetchData} />
-      </Layout>
+        <BrowserRouter>
+            <Header/>
+            <div className='mainContainer'>
+                <Route exact path='/' component={MainPage}/>
+                <Route exact path='/articles' component={Articles}/>
+                <Route path='/articles/:id' component={FullArticle}/>
+                <Route path='/gallery' component={Gallery}/>
+                <Footer/>
+            </div>
+        </BrowserRouter>
+
     );
-  }
 }
+
+export default App;
+
+

@@ -1,0 +1,22 @@
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.bgContainer {
+    width: 100%;
+    background-image: url("https://www.verywellhealth.com/thmb/Saj6SFcdQruzDv-71c7d14_Yzrs=/1167x785/filters:fill(87E3EF,1)/HEADSTONE-56a274843df78cf7727617f2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mainContainer {
+    margin: 0 auto;
+    max-width: 1230px;
+    padding: 0 15px;
+    width: 100%;
+}

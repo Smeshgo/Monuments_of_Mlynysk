@@ -1,0 +1,43 @@
+.box {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+
+.wrapper {
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 15px;
+    text-align: center;
+    width: 100%;
+
+}
+
+.block:hover {
+    box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.title {
+    padding-bottom: 10px;
+    max-width: 75px;
+    margin-top: 20px;
+}
+
+.price {
+    margin-top: 10px;
+
+}
+
+
+@media (max-width: 1050px) {
+    .box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
