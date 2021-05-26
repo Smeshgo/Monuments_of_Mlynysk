@@ -1,0 +1,29 @@
+.footerBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #322c29;
+    padding: 20px;
+}
+.footerLogo{}
+.footerLinks{
+
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+.link{
+    padding-left: 5px;
+    width: 50px !important;
+    height: 50px;
+}

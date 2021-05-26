@@ -1,32 +1,50 @@
-.aboutContainer{
-    max-width: 830px;
+.aboutContainer {
     width: 100%;
-
+    height: calc(100vh - 150px);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
 }
-.aboutWrapper{
+
+.aboutWrapper {
+    width: 100%;
+    height: 75%;
+    padding: 15px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #342d2b;
+}
+
+.text {
     max-width: 500px;
-    width: 100%;
+}
 
-    padding: 200px 15px 200px 50px;
+.photo {
 
 }
 
-.aboutWrapper h1{
+.aboutWrapper h1 {
     margin-bottom: 25px;
 }
-.aboutWrapper p{
+
+.aboutWrapper p {
     margin-bottom: 35px;
 }
-.button{
-    background-color: brown;
+
+.button {
+    background-color: #800000;
     border: none;
 }
-.button:hover{
+
+.button:hover {
     background-color: brown;
 }
 
 @media (max-width: 991px) {
-    .aboutWrapper{
+    .aboutWrapper {
         padding: 100px 15px 100px 15px;
     }
 }

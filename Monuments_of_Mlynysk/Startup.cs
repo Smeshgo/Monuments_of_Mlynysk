@@ -1,10 +1,16 @@
-åusing Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Diagnostics;
+using Npgsql;
+using System.Data;
+using Monuments_of_Mlynysk.Models;
+
 
 namespace Monuments_of_Mlynysk
 {
@@ -12,7 +18,10 @@ namespace Monuments_of_Mlynysk
     {
         public Startup(IConfiguration configuration)
         {
+            MyDbContext.TestConnection();
+            MyDbContext.TestWrite();
             Configuration = configuration;
+            
         }
 
         public IConfiguration Configuration { get; }
@@ -20,7 +29,7 @@ namespace Monuments_of_Mlynysk
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory
