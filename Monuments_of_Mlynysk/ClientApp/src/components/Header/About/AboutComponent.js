@@ -1,25 +1,29 @@
 import React from "react";
-import {Button} from "react-bootstrap";
-import c from './AboutComponent.module.css';
+import background from './../../../assets/images/backgroundAbout.jpg';
+import {makeStyles} from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+    paperContainer: {
+        backgroundImage: `url('${background}')`,
+        width: '100%',
+        height: 'calc(100vh - 25px)',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        display: 'flex',
+        alignItems: 'flex-end',
+    },
+}));
 
 const AboutContainer = (props) => {
+    const classes = useStyles();
     return (
-        <>
-            <div className={c.aboutContainer}>
-               <div className={c.aboutWrapper}>
-                   <h1>PEPE LAUGHT</h1>
-                   <p>
-                    <span>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab blanditiis corporis cum delectus dignissimos dolorum eligendi eveniet ex iure laborum magni minima modi, mollitia nemo non, nostrum omnis quidem veritatis?</span><span>A accusamus aliquam atque commodi cumque delectus distinctio dolores eveniet facere fugiat ipsa ipsam itaque laborum modi nisi nulla pariatur perspiciatis praesentium provident qui, quis rem rerum unde voluptate voluptatibus.
-                    </span>
-                   </p>
-                   <Button className={c.button}>Learn more</Button>
-               </div>
-            </div>
-        </>
-
+        <div className={classes.paperContainer}>
+        </div>
     );
 };
 
 
 export default AboutContainer;
+
+

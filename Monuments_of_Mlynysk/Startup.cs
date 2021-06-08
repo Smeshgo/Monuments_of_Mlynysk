@@ -1,10 +1,17 @@
-åusing Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Diagnostics;
+using Npgsql;
+using System.Data;
+using Monuments_of_Mlynysk.Service;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Monuments_of_Mlynysk
 {
@@ -12,6 +19,7 @@ namespace Monuments_of_Mlynysk
     {
         public Startup(IConfiguration configuration)
         {
+         
             Configuration = configuration;
         }
 
@@ -21,6 +29,16 @@ namespace Monuments_of_Mlynysk
         public void ConfigureServices(IServiceCollection services)
         {
 
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<DbContext>(options => options.UseSqlServer(connection));
+            services.AddRazorPages();
+            services.AddControllersWithViews();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options => //CookieAuthenticationOptions
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                });
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory
@@ -49,6 +67,9 @@ namespace Monuments_of_Mlynysk
             app.UseSpaStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
