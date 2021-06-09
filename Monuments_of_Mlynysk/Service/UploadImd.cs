@@ -24,6 +24,7 @@ namespace Monuments_of_Mlynysk.Service
                 return photoUpload;
             }
         }
+        [HttpGet]
         public static object uploadImdDual()
         {
             using (MonumentDBContext db = new MonumentDBContext())
@@ -37,6 +38,7 @@ namespace Monuments_of_Mlynysk.Service
                 return photoUpload;
             }
         }
+        [HttpGet]
         public static object uploadImdElite()
         {
             using (MonumentDBContext db = new MonumentDBContext())

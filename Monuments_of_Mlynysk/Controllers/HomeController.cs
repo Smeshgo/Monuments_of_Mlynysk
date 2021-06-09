@@ -82,9 +82,25 @@ namespace Monuments_of_Mlynysk.Controllers
         {
             return View();
         }
-        public JsonResult Singelimg()
+        // GET: HomeController/Singelimg/
+        public JsonResult Singlimg()
         {
             return Json(UploadImd.uploadImdSingle());
+        }
+
+        public JsonResult Dualimg()
+        {
+            return Json(UploadImd.uploadImdDual());
+        }
+
+        public JsonResult Eliteimg()
+        {
+            return Json(UploadImd.uploadImdElite());
+        }
+
+        public JsonResult Articles()
+        {
+            return Json(Article.articlesUpload());
         }
 
         // POST: HomeController/Delete/5
